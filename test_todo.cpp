@@ -61,8 +61,9 @@ TEST(TodoListTest, RemoveInvalidIndexThrows) {
     const char** tasks = todo.get_pending_tasks(count);
     ASSERT_EQ(count, 1);
     EXPECT_THROW(todo.remove_task(-1), std::out_of_range);
+    EXPECT_THROW(todo.remove_task(-100), std::out_of_range);
     EXPECT_THROW(todo.remove_task(count), std::out_of_range);
-    
+    \
     todo.destroy();
 }
 
